@@ -8,12 +8,17 @@ import org.springframework.context.annotation.Bean;
 
 import com.jmejiamu.backend.domain.MenItemRepository;
 import com.jmejiamu.backend.domain.MenItems;
+import com.jmejiamu.backend.domain.WomenItem;
+import com.jmejiamu.backend.domain.WomenItemRepository;
 
 @SpringBootApplication
 public class MarketItemApiApplication {
 
 	@Autowired
-	private MenItemRepository repository;
+	private MenItemRepository menItemRepository;
+	
+	@Autowired
+	private WomenItemRepository womenItemRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MarketItemApiApplication.class, args);
@@ -23,8 +28,12 @@ public class MarketItemApiApplication {
 	@Bean
 	CommandLineRunner runner() {
 		return args -> {
+			
 			MenItems men = new MenItems("Test description", "Test Name", "test URL");
-			repository.save(men);
+			menItemRepository.save(men);
+			
+			WomenItem women = new WomenItem("Test Women description Test","Women test name", "Woman test URL");
+			womenItemRepository.save(women);
 		};
 	}
 
