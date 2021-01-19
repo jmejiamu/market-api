@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class MenItems {
+public class WomenItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -14,10 +14,10 @@ public class MenItems {
 	private String itemDescrition;
 	private String itemUrl;
 
-	public MenItems() {
+	public WomenItem() {
 	}
 
-	public MenItems(String itemName, String itemDescrition, String itemUrl) {
+	public WomenItem(String itemName, String itemDescrition, String itemUrl) {
 		super();
 		this.itemName = itemName;
 		this.itemDescrition = itemDescrition;
@@ -47,5 +47,6 @@ public class MenItems {
 	public void setItemUrl(String itemUrl) {
 		this.itemUrl = itemUrl;
 	}
+	
 
 }
