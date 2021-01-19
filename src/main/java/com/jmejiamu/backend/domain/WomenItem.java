@@ -5,8 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/*
+ * - The class WomenItem table (women_item) in the DB items
+ */
 @Entity
 public class WomenItem {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
