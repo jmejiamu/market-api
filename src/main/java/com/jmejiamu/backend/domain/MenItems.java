@@ -6,11 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
+
+
 /*
  * - The class MenItem table (men_item) in the DB items
  */
 
 @Entity
+
 public class MenItems {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
