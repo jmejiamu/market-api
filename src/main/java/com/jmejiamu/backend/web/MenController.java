@@ -18,11 +18,19 @@ public class MenController {
 	@Autowired
 	private WomenItemRepository wrepository;
 
+	/*
+	 * @return men item from the database
+	 */
+	
 	@RequestMapping("/menitems")
 	public Iterable<MenItems> getMen(){
 		return repository.findAll();
 	}
 	
+	
+	/*
+	 * @return women data
+	 */
 	
 	@RequestMapping("/womenitems")
 	public Iterable<WomenItem> getWomen(){
