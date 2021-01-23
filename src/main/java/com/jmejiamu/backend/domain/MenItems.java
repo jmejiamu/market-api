@@ -9,12 +9,15 @@ import javax.persistence.Id;
 
 
 /*
- * - The class MenItem table (men_item) in the DB items
+ * - The class MenItem create table (men_item) in the DB items
  */
 
 @Entity
 
 public class MenItems {
+	/*
+	 * Create fields (id, itemName, itemDescription,itemUrl)in the table (men_item)
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -22,8 +25,7 @@ public class MenItems {
 	private String itemDescrition;
 	private String itemUrl;
 
-	public MenItems() {
-	}
+	public MenItems() {}
 
 	public MenItems(String itemName, String itemDescrition, String itemUrl) {
 		super();

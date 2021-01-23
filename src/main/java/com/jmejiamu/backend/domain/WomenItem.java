@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 
 /*
- * - The class WomenItem table (women_item) in the DB items
+ * - The class WomenItem create table (women_item) in the DB items
  */
 @Entity
 
