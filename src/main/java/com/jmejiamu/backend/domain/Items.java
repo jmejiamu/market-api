@@ -13,6 +13,9 @@ import javax.persistence.Id;
 @Entity
 public class Items {
 
+	/*
+	 * This generate an auto increment ID
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
