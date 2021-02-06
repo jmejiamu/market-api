@@ -11,7 +11,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class Items {
+public class ElectronicItems {
 
 	/*
 	 * This generate an auto increment ID
@@ -23,9 +23,9 @@ public class Items {
 	private String itemDescrition;
 	private String itemUrl;
 	
-	public Items() {}
+	public ElectronicItems() {}
 
-	public Items(String itemName, String itemDescrition, String itemUrl) {
+	public ElectronicItems(String itemName, String itemDescrition, String itemUrl) {
 		super();
 		this.itemName = itemName;
 		this.itemDescrition = itemDescrition;
