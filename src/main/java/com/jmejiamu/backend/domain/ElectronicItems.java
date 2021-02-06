@@ -20,15 +20,15 @@ public class ElectronicItems {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String itemName;
-	private String itemDescrition;
+	private String itemDescription;
 	private String itemUrl;
 	
 	public ElectronicItems() {}
 
-	public ElectronicItems(String itemName, String itemDescrition, String itemUrl) {
+	public ElectronicItems(String itemName, String itemDescription, String itemUrl) {
 		super();
 		this.itemName = itemName;
-		this.itemDescrition = itemDescrition;
+		this.itemDescription = itemDescription;
 		this.itemUrl = itemUrl;
 	}
 
@@ -41,11 +41,11 @@ public class ElectronicItems {
 	}
 
 	public String getItemDescrition() {
-		return itemDescrition;
+		return itemDescription;
 	}
 
 	public void setItemDescrition(String itemDescrition) {
-		this.itemDescrition = itemDescrition;
+		this.itemDescription = itemDescrition;
 	}
 
 	public String getItemUrl() {
