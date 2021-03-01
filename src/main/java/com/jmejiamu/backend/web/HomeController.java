@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jmejiamu.backend.domain.CarouseRepository;
+import com.jmejiamu.backend.domain.Carousel;
 import com.jmejiamu.backend.domain.ElectronicItems;
 import com.jmejiamu.backend.domain.ElectronicRepository;
 import com.jmejiamu.backend.domain.MenItemRepository;
@@ -24,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private ElectronicRepository erepository;
+	
+	@Autowired
+	private CarouseRepository crepository;
 
 	/*
 	 * @return men item from the database
@@ -54,5 +59,14 @@ public class HomeController {
 		return erepository.findAll();
 	}
 	
+	
+	/*
+	 * @return carousel data
+	 */
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping("/carousel")
+	public Iterable<Carousel> getCarousel(){
+		return crepository.findAll();
+	}
 	
 }
