@@ -12,6 +12,8 @@ import com.jmejiamu.backend.domain.ElectronicItems;
 import com.jmejiamu.backend.domain.ElectronicRepository;
 import com.jmejiamu.backend.domain.MenItemRepository;
 import com.jmejiamu.backend.domain.MenItems;
+import com.jmejiamu.backend.domain.Popular;
+import com.jmejiamu.backend.domain.PopularRepository;
 import com.jmejiamu.backend.domain.WomenItem;
 import com.jmejiamu.backend.domain.WomenItemRepository;
 
@@ -29,6 +31,9 @@ public class HomeController {
 	
 	@Autowired
 	private CarouseRepository crepository;
+	
+	@Autowired
+	private PopularRepository prepository;
 
 	/*
 	 * @return men item from the database
@@ -67,6 +72,15 @@ public class HomeController {
 	@RequestMapping("/carousel")
 	public Iterable<Carousel> getCarousel(){
 		return crepository.findAll();
+	}
+	
+	/*
+	 * @ return popular data
+	 */
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping("/popular")
+	public Iterable<Popular> getPopular(){
+		return prepository.findAll();
 	}
 	
 }
