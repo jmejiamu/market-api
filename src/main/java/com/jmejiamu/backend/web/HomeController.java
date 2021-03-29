@@ -12,6 +12,8 @@ import com.jmejiamu.backend.domain.ElectronicItems;
 import com.jmejiamu.backend.domain.ElectronicRepository;
 import com.jmejiamu.backend.domain.MenItemRepository;
 import com.jmejiamu.backend.domain.MenItems;
+import com.jmejiamu.backend.domain.MenWallet;
+import com.jmejiamu.backend.domain.MenWalletRepository;
 import com.jmejiamu.backend.domain.New;
 import com.jmejiamu.backend.domain.NewRepository;
 import com.jmejiamu.backend.domain.Popular;
@@ -39,6 +41,9 @@ public class HomeController {
 	
 	@Autowired
 	private NewRepository nrepository;
+	
+	@Autowired
+	private MenWalletRepository mwrepository;
 
 	/*
 	 * @return men item from the database
@@ -96,5 +101,15 @@ public class HomeController {
 	@RequestMapping("/new")
 	public Iterable <New> getNew(){
 		return nrepository.findAll();
+	}
+	
+	/*
+	 * @return new item data
+	 * 
+	 */
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping("/men-wallet")
+	public Iterable <MenWallet> getMenWallet(){
+		return mwrepository.findAll();
 	}
 }
