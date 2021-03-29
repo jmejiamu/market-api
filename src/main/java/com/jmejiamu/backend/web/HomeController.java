@@ -18,6 +18,8 @@ import com.jmejiamu.backend.domain.New;
 import com.jmejiamu.backend.domain.NewRepository;
 import com.jmejiamu.backend.domain.Popular;
 import com.jmejiamu.backend.domain.PopularRepository;
+import com.jmejiamu.backend.domain.Watch;
+import com.jmejiamu.backend.domain.WatchRepository;
 import com.jmejiamu.backend.domain.WomenItem;
 import com.jmejiamu.backend.domain.WomenItemRepository;
 
@@ -44,6 +46,9 @@ public class HomeController {
 	
 	@Autowired
 	private MenWalletRepository mwrepository;
+	
+	@Autowired
+	private WatchRepository mwatchrepository;
 
 	/*
 	 * @return men item from the database
@@ -104,12 +109,22 @@ public class HomeController {
 	}
 	
 	/*
-	 * @return new item data
+	 * @return wallet item data
 	 * 
 	 */
 	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping("/men-wallet")
 	public Iterable <MenWallet> getMenWallet(){
 		return mwrepository.findAll();
+	}
+	
+	/*
+	 * @return watch item data
+	 * 
+	 */
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping("/men-watch")
+	public Iterable <Watch> getMenWatch(){
+		return mwatchrepository.findAll();
 	}
 }
