@@ -16,6 +16,8 @@ import com.jmejiamu.backend.domain.MenWallet;
 import com.jmejiamu.backend.domain.MenWalletRepository;
 import com.jmejiamu.backend.domain.MensHat;
 import com.jmejiamu.backend.domain.MensHatsRepository;
+import com.jmejiamu.backend.domain.Mentshirt;
+import com.jmejiamu.backend.domain.MentshirtRepository;
 import com.jmejiamu.backend.domain.New;
 import com.jmejiamu.backend.domain.NewRepository;
 import com.jmejiamu.backend.domain.Popular;
@@ -54,6 +56,9 @@ public class HomeController {
 	
 	@Autowired
 	private MensHatsRepository mensHRepository;
+	
+	@Autowired
+	private MentshirtRepository mensTshirRepository;
 
 	/*
 	 * @return men item from the database
@@ -134,12 +139,22 @@ public class HomeController {
 	}
 	
 	/*
-	 * @return watch item data
+	 * @return hats item data
 	 * 
 	 */
 	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping("/men-hats")
 	public Iterable <MensHat> getMenHats(){
 		return mensHRepository.findAll();
+	}
+	
+	/*
+	 * @return t-shirt item data
+	 * 
+	 */
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping("/men-tshirt")
+	public Iterable <Mentshirt> getMenTshirt(){
+		return mensTshirRepository.findAll();
 	}
 }
