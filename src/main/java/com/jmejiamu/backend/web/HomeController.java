@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jmejiamu.backend.domain.CarouseRepository;
 import com.jmejiamu.backend.domain.Carousel;
+import com.jmejiamu.backend.domain.Cart;
+import com.jmejiamu.backend.domain.CartRepository;
 import com.jmejiamu.backend.domain.ElectronicItems;
 import com.jmejiamu.backend.domain.ElectronicRepository;
 import com.jmejiamu.backend.domain.MenItemRepository;
@@ -59,6 +61,9 @@ public class HomeController {
 	
 	@Autowired
 	private MentshirtRepository mensTshirRepository;
+	
+	@Autowired
+	private CartRepository cartRepository;
 
 	/*
 	 * @return men item from the database
@@ -156,5 +161,15 @@ public class HomeController {
 	@RequestMapping("/men-tshirt")
 	public Iterable <Mentshirt> getMenTshirt(){
 		return mensTshirRepository.findAll();
+	}
+	
+	/*
+	 * @return cart item data
+	 * 
+	 */
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping("/cart")
+	public Iterable <Cart> getCart(){
+		return cartRepository.findAll();
 	}
 }
