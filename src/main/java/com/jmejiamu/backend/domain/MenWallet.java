@@ -16,7 +16,7 @@ public class MenWallet {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long Id;
 	private String itemName;
 	private String itemDescription;
 	private String itemUrl;
@@ -52,6 +52,14 @@ public class MenWallet {
 
 	public void setItemUrl(String itemUrl) {
 		this.itemUrl = itemUrl;
+	}
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
 	}
 	
 	
