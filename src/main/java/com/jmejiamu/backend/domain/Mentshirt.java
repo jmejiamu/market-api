@@ -16,7 +16,7 @@ public class Mentshirt {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long Id;
 	private String itemName;
 	private String itemDescript;
 	private String itemUrl;
@@ -53,6 +53,16 @@ public class Mentshirt {
 	public void setItemUrl(String itemUrl) {
 		this.itemUrl = itemUrl;
 	}
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
+	
+	
 	
 	
 }
