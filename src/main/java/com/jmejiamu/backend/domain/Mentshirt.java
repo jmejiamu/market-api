@@ -18,16 +18,16 @@ public class Mentshirt {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
 	private String itemName;
-	private String itemDescript;
+	private String itemDescription;
 	private String itemUrl;
 	private double price;
 	
 	public Mentshirt() {}
 
-	public Mentshirt(String itemName, String itemDescript, String itemUrl, double price) {
+	public Mentshirt(String itemName, String itemDescription, String itemUrl, double price) {
 		super();
 		this.itemName = itemName;
-		this.itemDescript = itemDescript;
+		this.itemDescription = itemDescription;
 		this.itemUrl = itemUrl;
 		this.price = price;
 	}
@@ -40,12 +40,12 @@ public class Mentshirt {
 		this.itemName = itemName;
 	}
 
-	public String getItemDescript() {
-		return itemDescript;
+	public String getItemDescription() {
+		return itemDescription;
 	}
 
-	public void setItemDescript(String itemDescript) {
-		this.itemDescript = itemDescript;
+	public void setItemDescription(String itemDescription) {
+		this.itemDescription = itemDescription;
 	}
 
 	public String getItemUrl() {
