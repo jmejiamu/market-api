@@ -20,14 +20,16 @@ public class MenWallet {
 	private String itemName;
 	private String itemDescription;
 	private String itemUrl;
+	private double price;
 	
 	public MenWallet() {}
 
-	public MenWallet(String itemName, String itemDescription, String itemUrl) {
+	public MenWallet(String itemName, String itemDescription, String itemUrl, double price) {
 		super();
 		this.itemName = itemName;
 		this.itemDescription = itemDescription;
 		this.itemUrl = itemUrl;
+		this.price = price;
 	}
 
 	public String getItemName() {
@@ -60,6 +62,14 @@ public class MenWallet {
 
 	public void setId(long id) {
 		Id = id;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	
 	
