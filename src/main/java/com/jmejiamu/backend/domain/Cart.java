@@ -14,16 +14,18 @@ public class Cart {
 	private String itemName;
 	private String itemDescription;
 	private String itemUrl;
+	private double price;
 	
 	public Cart() {
 	}
 	
 
-	public Cart(String itemName, String itemDescription, String itemUrl) {
+	public Cart(String itemName, String itemDescription, String itemUrl, double price) {
 		super();
 		this.itemName = itemName;
 		this.itemDescription = itemDescription;
 		this.itemUrl = itemUrl;
+		this.price = price;
 	}
 
 
@@ -58,6 +60,16 @@ public class Cart {
 
 	public void setItemUrl(String itemUrl) {
 		this.itemUrl = itemUrl;
+	}
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	
 	
