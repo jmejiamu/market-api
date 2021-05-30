@@ -20,14 +20,16 @@ public class Mentshirt {
 	private String itemName;
 	private String itemDescript;
 	private String itemUrl;
+	private double price;
 	
 	public Mentshirt() {}
 
-	public Mentshirt(String itemName, String itemDescript, String itemUrl) {
+	public Mentshirt(String itemName, String itemDescript, String itemUrl, double price) {
 		super();
 		this.itemName = itemName;
 		this.itemDescript = itemDescript;
 		this.itemUrl = itemUrl;
+		this.price = price;
 	}
 
 	public String getItemName() {
@@ -60,6 +62,14 @@ public class Mentshirt {
 
 	public void setId(long id) {
 		Id = id;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	
 	
