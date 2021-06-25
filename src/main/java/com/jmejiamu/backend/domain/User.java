@@ -1,5 +1,7 @@
 package com.jmejiamu.backend.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 
 }
