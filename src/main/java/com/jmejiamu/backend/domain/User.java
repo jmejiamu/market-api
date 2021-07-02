@@ -1,6 +1,7 @@
 package com.jmejiamu.backend.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable{
 
@@ -11,6 +12,8 @@ public class User implements Serializable{
 	private String username;
 	private String password;
 	private String email;
+	private String profileImageUrl;
+	private Date lastLoginDate;
 	
 	
 }
