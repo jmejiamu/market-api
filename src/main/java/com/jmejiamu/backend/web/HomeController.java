@@ -3,6 +3,9 @@ package com.jmejiamu.backend.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +27,7 @@ import com.jmejiamu.backend.domain.New;
 import com.jmejiamu.backend.domain.NewRepository;
 import com.jmejiamu.backend.domain.Popular;
 import com.jmejiamu.backend.domain.PopularRepository;
+import com.jmejiamu.backend.domain.RegisterUser;
 import com.jmejiamu.backend.domain.Watch;
 import com.jmejiamu.backend.domain.WatchRepository;
 import com.jmejiamu.backend.domain.WomenItem;
@@ -172,4 +176,11 @@ public class HomeController {
 	public Iterable <Cart> getCart(){
 		return cartRepository.findAll();
 	}
+	
+	@PostMapping("/newuser")
+	RegisterUser newUser(@RequestBody RegisterUser newUser) {
+		return newUser;
+	}
+	
+	
 }
