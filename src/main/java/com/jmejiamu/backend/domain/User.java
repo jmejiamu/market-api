@@ -16,5 +16,7 @@ public class User implements Serializable{
 	private Date lastLoginDate;
 	private Date getLastLoginDate;
 	private Date joinDate;
+	private String role;
+	private String[] authorities;
 	
 }
