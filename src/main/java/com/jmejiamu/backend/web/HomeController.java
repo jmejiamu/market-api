@@ -27,6 +27,7 @@ import com.jmejiamu.backend.domain.New;
 import com.jmejiamu.backend.domain.NewRepository;
 import com.jmejiamu.backend.domain.Popular;
 import com.jmejiamu.backend.domain.PopularRepository;
+import com.jmejiamu.backend.domain.RegisterRepository;
 import com.jmejiamu.backend.domain.RegisterUser;
 import com.jmejiamu.backend.domain.Watch;
 import com.jmejiamu.backend.domain.WatchRepository;
@@ -68,6 +69,16 @@ public class HomeController {
 	
 	@Autowired
 	private CartRepository cartRepository;
+	
+	private RegisterRepository registerRepository;
+	
+	
+	@Autowired
+	public HomeController(RegisterRepository registerRepository) {
+		super();
+		this.registerRepository = registerRepository;
+	}
+
 
 	/*
 	 * @return men item from the database
@@ -179,7 +190,7 @@ public class HomeController {
 	
 	@PostMapping("/newuser")
 	RegisterUser newUser(@RequestBody RegisterUser newUser) {
-		return newUser;
+		return registerRepository.save(newUser);
 	}
 	
 	
