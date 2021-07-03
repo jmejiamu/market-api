@@ -14,6 +14,7 @@ public class User implements Serializable{
 	private String email;
 	private String profileImageUrl;
 	private Date lastLoginDate;
-	
+	private Date getLastLoginDate;
+	private Date joinDate;
 	
 }
