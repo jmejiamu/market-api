@@ -9,11 +9,12 @@ import javax.persistence.Id;
 public class RegisterUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long Id;
 	private String username;
 	private String firstName;
 	private String lastName;
 	private String password;
+	private String email;
 	
 	
 	public RegisterUser() {
@@ -21,12 +22,33 @@ public class RegisterUser {
 	}
 
 
-	public RegisterUser(String username, String firstName, String lastName, String password) {
+	public RegisterUser(String username, String firstName, String lastName, String password, String email) {
 		super();
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.email = email;
+	}
+	
+
+	public long getId() {
+		return Id;
+	}
+
+
+	public void setId(long id) {
+		Id = id;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
