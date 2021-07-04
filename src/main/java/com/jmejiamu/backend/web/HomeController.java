@@ -1,6 +1,10 @@
 package com.jmejiamu.backend.web;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +19,7 @@ import com.jmejiamu.backend.domain.Cart;
 import com.jmejiamu.backend.domain.CartRepository;
 import com.jmejiamu.backend.domain.ElectronicItems;
 import com.jmejiamu.backend.domain.ElectronicRepository;
+import com.jmejiamu.backend.domain.GeneralHttpResponse;
 import com.jmejiamu.backend.domain.MenItemRepository;
 import com.jmejiamu.backend.domain.MenItems;
 import com.jmejiamu.backend.domain.MenWallet;
@@ -189,8 +194,10 @@ public class HomeController {
 	}
 	
 	@PostMapping("/newuser")
-	RegisterUser newUser(@RequestBody RegisterUser newUser) {
-		return registerRepository.save(newUser);
+	public ResponseEntity<GeneralHttpResponse> newUser(@RequestBody RegisterUser newUser) {
+		GeneralHttpResponse generalHttpResponse =  new GeneralHttpResponse(new Date(), 200, HttpStatus.OK, "ssss", "awaddw");
+		registerRepository.save(newUser);
+		return new ResponseEntity<>(generalHttpResponse, HttpStatus.OK);
 	}
 	
 	
