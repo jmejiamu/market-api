@@ -211,9 +211,30 @@ public class HomeController {
 		String passwordEncode = bCryptPasswordEncoder.passwordEncoder().encode(password);
 		newUser.setPassword(passwordEncode);
 		GeneralHttpResponse generalHttpResponse =  new GeneralHttpResponse(new Date(), 200, HttpStatus.OK, "ssss", "awaddw");
-		
+		// Return true if the 2 password matches -  this is just a test
+		boolean isPasswordMatch = bCryptPasswordEncoder.passwordEncoder().matches(password, passwordEncode);
+		LOGGER.info("Password: " +  password + " Encoded: " + passwordEncode + " match :  " + isPasswordMatch);
 		registerRepository.save(newUser);
 		return new ResponseEntity<>(generalHttpResponse, HttpStatus.OK);
+	}
+	
+	@PostMapping("/login")
+	public Iterable <RegisterUser> signIn(@RequestBody  String userEmail, String userPassword) {
+//		String foundEmail =  login.getEmail();
+//		
+//		RegisterUser e = registerRepository.findByEmail(foundEmail.getEmail());
+//		String em  = e.getEmail();
+//		if (em.equals(userEmail)) {
+//			LOGGER.info("true");
+//		}else {
+//			LOGGER.info("false");
+//		}
+//		System.out.println(userEmail);
+//		System.out.println(userPassword);
+//		System.out.println(foundEmail.getEmail());
+//		return  registerRepository.findByEmail("jjj");
+//		registerRepository.exists();
+//		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	

@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RegisterRepository extends JpaRepository<RegisterUser, Long> {
 
+	RegisterUser findByEmail(String email);
+
 }
