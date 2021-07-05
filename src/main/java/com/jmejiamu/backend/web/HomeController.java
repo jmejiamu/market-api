@@ -2,9 +2,13 @@ package com.jmejiamu.backend.web;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jmejiamu.backend.configuration.SecurityConfiguration;
 import com.jmejiamu.backend.domain.CarouseRepository;
 import com.jmejiamu.backend.domain.Carousel;
 import com.jmejiamu.backend.domain.Cart;
@@ -41,6 +46,9 @@ import com.jmejiamu.backend.domain.WomenItemRepository;
 
 @RestController
 public class HomeController {
+	
+	// This allows me to print things in the console
+	private Logger LOGGER = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private MenItemRepository repository;
@@ -76,6 +84,9 @@ public class HomeController {
 	private CartRepository cartRepository;
 	
 	private RegisterRepository registerRepository;
+	
+	@Autowired
+	private SecurityConfiguration bCryptPasswordEncoder;
 	
 	
 	@Autowired
@@ -195,7 +206,12 @@ public class HomeController {
 	
 	@PostMapping("/newuser")
 	public ResponseEntity<GeneralHttpResponse> newUser(@RequestBody RegisterUser newUser) {
+		String password = newUser.getPassword();
+		LOGGER.info(password);
+		String passwordEncode = bCryptPasswordEncoder.passwordEncoder().encode(password);
+		newUser.setPassword(passwordEncode);
 		GeneralHttpResponse generalHttpResponse =  new GeneralHttpResponse(new Date(), 200, HttpStatus.OK, "ssss", "awaddw");
+		
 		registerRepository.save(newUser);
 		return new ResponseEntity<>(generalHttpResponse, HttpStatus.OK);
 	}
