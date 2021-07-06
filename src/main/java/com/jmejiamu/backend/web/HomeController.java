@@ -1,10 +1,16 @@
 package com.jmejiamu.backend.web;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -45,7 +51,7 @@ import com.jmejiamu.backend.domain.WomenItem;
 import com.jmejiamu.backend.domain.WomenItemRepository;
 
 @RestController
-public class HomeController {
+public class HomeController implements RegisterRepository {
 	
 	// This allows me to print things in the console
 	private Logger LOGGER = LoggerFactory.getLogger(getClass());
@@ -219,7 +225,7 @@ public class HomeController {
 	}
 	
 	@PostMapping("/login")
-	public Iterable <RegisterUser> signIn(@RequestBody  String userEmail, String userPassword) {
+	public void signIn(@RequestBody  String userEmail, String userPassword) {
 //		String foundEmail =  login.getEmail();
 //		
 //		RegisterUser e = registerRepository.findByEmail(foundEmail.getEmail());
@@ -235,6 +241,184 @@ public class HomeController {
 //		return  registerRepository.findByEmail("jjj");
 //		registerRepository.exists();
 //		return new ResponseEntity<>(HttpStatus.OK);
+		RegisterUser e = findByEmail(userEmail);
+		String n = e.getFirstName();
+		System.out.println(n);
+	}
+
+
+	@Override
+	public List<RegisterUser> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<RegisterUser> findAll(Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<RegisterUser> findAllById(Iterable<Long> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> List<S> saveAll(Iterable<S> entities) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void flush() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public <S extends RegisterUser> S saveAndFlush(S entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void deleteInBatch(Iterable<RegisterUser> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deleteAllInBatch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public RegisterUser getOne(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> List<S> findAll(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> List<S> findAll(Example<S> example, Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Page<RegisterUser> findAll(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> S save(S entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Optional<RegisterUser> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean existsById(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public long count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void delete(RegisterUser entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deleteAll(Iterable<? extends RegisterUser> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public <S extends RegisterUser> Optional<S> findOne(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> Page<S> findAll(Example<S> example, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> long count(Example<S> example) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public <S extends RegisterUser> boolean exists(Example<S> example) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public RegisterUser findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return registerRepository.findByEmail(email);
 	}
 	
 	
