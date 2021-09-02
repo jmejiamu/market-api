@@ -1,5 +1,5 @@
 # market-api
-Market's API. Java - spring boot and MySQL
+Market's API. Java - Spring Boot and MySQL
 
 ### Backend Technologies
 
